@@ -3,7 +3,10 @@ from bs4 import BeautifulSoup
 import distance
 from fuzzywuzzy import fuzz
 import pickle
+import nltk
 import numpy as np
+nltk.download('wordnet')
+nltk.download('omw-1.4')
 
 cv = pickle.load(open('cv.pkl','rb'))
 

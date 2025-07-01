@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import distance
 from fuzzywuzzy import fuzz
 import pickle
+import nltk
 import numpy as np
 
 cv = pickle.load(open('cv.pkl','rb'))
@@ -268,6 +269,15 @@ def preprocess(q):
     q = q.replace("n't", " not")
     q = q.replace("'re", " are")
     q = q.replace("'ll", " will")
+
+    # using lemetization
+    q_lemmatized = []
+    wordnet = nltk.WordNetLemmatizer()
+    for word in q.split():
+        lemma = wordnet.lemmatize(word, pos='v')
+        q_lemmatized.append(lemma)
+
+
 
     # # Removing HTML tags
     q = BeautifulSoup(q)

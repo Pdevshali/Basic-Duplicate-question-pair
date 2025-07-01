@@ -20,6 +20,6 @@ if st.button("Find"):
     result = model.predict(query)[0]    # ✅ Correct
 
     if result:
-        st.header("The questions are duplicates.")
+        st.success("✅ The questions are duplicates.")
     else:
-        st.header("The questions are not duplicates.")
+        st.error("❌ The questions are not duplicates.")
